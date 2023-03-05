@@ -1,0 +1,337 @@
+@font-face {
+  font-family: "Zelda";
+  src: url("fonts/Triforce.ttf");
+}
+
+body {
+  text-align: center;
+  font-size: 1em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+}
+
+#title {
+  font-size: 5em;
+  padding: 20px 0;
+  background-color: rgb(42, 67, 32);
+  border-bottom: 1px solid rgb(216, 209, 129);
+  margin: 0 0 30px 0;
+  color: rgb(255, 247, 161);
+  font-family: "Zelda";
+}
+
+h1 {
+  font-size: 3em;
+  padding: 20px 0;
+  margin: 0 0 30px 0;
+  color: black;
+  font-family: "Zelda";
+}
+
+#navi {
+  cursor: pointer;
+  position: fixed;
+  height: 3rem;
+  width: auto;
+  top: 3rem;
+  right: 30%;
+  animation: naviBounce 1s ease-in-out infinite;
+  z-index: 4;
+}
+
+@keyframes naviBounce {
+  0% {
+    top: 3rem;
+  }
+
+  50% {
+    top: 2.5rem;
+  }
+  
+  100% {
+    top: 3rem;
+  }
+}
+
+/* Rows */
+
+.row {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.row > div {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #bbb;
+  margin: 4px;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.row > div.green {
+  --background: #5ac85a;
+  --border-color: #5ac85a;
+  animation: flip 0.5s ease forwards;
+}
+
+.row > div.grey {
+  --background: #a1a1a1;
+  --border-color: #a1a1a1;
+  animation: flip 0.5s ease forwards;
+}
+
+.row > div.yellow {
+  --background: #e2cc68;
+  --border-color: #e2cc68;
+  animation: flip 0.5s ease forwards;
+}
+
+.row > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.row > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.row > div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.row > div:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.row.current > div.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+
+.keypad {
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.keypad > div {
+  margin: 5px;
+  width: 40px;
+  height: 50px;
+  background: #eee;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
+  transition: all 0.3s ease-in;
+}
+
+.keypad > div:active {
+  cursor: pointer;
+  background-color: rgb(42, 67, 32);
+  color: rgb(255, 247, 161);
+}
+
+.keypad > div.green {
+  background: #5ac85a;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.kepad > div.green:active {
+  color: #5ac85a;
+}
+
+.keypad > div.yellow {
+  background: #e2cc68;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+.keypad > div.yellow:active {
+  color: #e2cc68;
+}
+
+.keypad > div.grey {
+  background: #a1a1a1;
+  color: #fff;
+  transition: all 0.3s ease-in;
+}
+
+#submit {
+  cursor: pointer;
+  background-color: rgb(42, 67, 32);
+  color: rgb(255, 247, 161);
+  width: auto;
+  padding: 0 .5em;
+}
+
+#submit:active {
+  color: rgb(42, 67, 32);
+  background-color: rgb(255, 247, 161);
+}
+
+.modal {
+  background: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.modal div {
+  max-width: 480px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 20rem auto;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal .solution, .listen {
+  color: #ff004c;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal div .play-again {
+  cursor: pointer;
+  padding: .4em;
+  border-radius: .2em;
+  background-color: rgb(42, 67, 32);
+  color: rgb(255, 247, 161);
+}
+
+/* Hint modal */
+
+.hint-modal {
+  background: rgba(34, 34, 34, 0.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.hint-modal-div {
+  position: relative;
+  max-width: 480px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 15rem auto;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-hint {
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1.1rem;
+  display: grid;
+  place-items: center;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  background-color: #ff004c;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: white;
+}
+
+/* Animations */
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+    background: #fff;
+    border-color: #333;
+  }
+
+  45% {
+    transform: rotateX(90deg);
+    background: #fff;
+    border-color: #333;
+  }
+
+  55% {
+    transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: white;
+  }
+
+  100% {
+    transform: rotateX(0deg);
+    background: var(--background);
+    border-color: var(--border-color);
+    color: white;
+  }
+}
+
+@keyframes bounce {
+  0%{
+    transform: scale(1);
+    border-color: #ddd;
+  }
+
+  50% {
+    transform: scale(1.2);
+    border-color: #333;
+  }
+  
+  100% {
+    transform: scale(1);
+    border-color: #333;
+  }
+}
+
+@media only screen and (max-height: 786px), screen and (max-width: 900px) {
+  #title {
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  .row > div {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.5em;
+  }
+
+  .modal div {
+    margin: 12rem auto;
+  }
+
+  #navi {
+    height: 2rem;
+    width: auto;
+    top: 0.7rem;
+    right: 35%;
+  }
+
+  @keyframes naviBounce {
+    0% {
+      top: 0.7rem;
+    }
+  
+    50% {
+      top: 1rem;
+    }
+    
+    100% {
+      top: 0.7rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 686px){
+  #navi {
+    right: 15%;
+  }
+}
